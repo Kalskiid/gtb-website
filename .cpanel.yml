@@ -1,27 +1,22 @@
 ---
-# Write to every plausible doc root for globaltopbrands.eu.
-# Whichever cPanel actually serves for the domain wins.
-# Creates the dir if missing (SuperHosting sometimes provisions on first write).
 deployment:
   tasks:
-    - >-
-      set -x;
-      echo "== HOME: $HOME";
-      ls -la "$HOME" || true;
-      ls -la "$HOME/domains" 2>/dev/null || true;
-      for D in \
-          "$HOME/domains/globaltopbrands.eu/public_html" \
-          "$HOME/public_html/globaltopbrands.eu" \
-          "$HOME/public_html"; do
-        echo "-- target: $D";
-        mkdir -p "$D" 2>/dev/null || { echo "mkdir failed for $D"; continue; };
-        cp -f index.html   "$D/" 2>&1 || echo "cp index.html failed";
-        cp -f styles.css   "$D/" 2>&1 || echo "cp styles.css failed";
-        cp -f script.js    "$D/" 2>&1 || echo "cp script.js failed";
-        cp -f .htaccess    "$D/" 2>&1 || echo "cp .htaccess failed";
-        cp -Rf media       "$D/" 2>&1 || echo "cp media failed";
-        cp -Rf data        "$D/" 2>&1 || true;
-        echo "-- wrote: $D";
-        ls -la "$D";
-      done;
+    - |
+      set -x
+      echo "== HOME=$HOME  USER=$USER  PWD=$PWD"
+      ls -la "$HOME" || true
+      ls -la "$HOME/domains" 2>/dev/null || true
+      ls -la "$HOME/public_html" 2>/dev/null || true
+      for D in "$HOME/domains/globaltopbrands.eu/public_html" "$HOME/public_html/globaltopbrands.eu" "$HOME/public_html"; do
+        echo "-- target: $D"
+        mkdir -p "$D" 2>/dev/null || { echo "mkdir failed for $D"; continue; }
+        cp -f  index.html "$D/" 2>&1 || echo "cp index.html FAILED for $D"
+        cp -f  styles.css "$D/" 2>&1 || echo "cp styles.css FAILED for $D"
+        cp -f  script.js  "$D/" 2>&1 || echo "cp script.js FAILED for $D"
+        cp -f  .htaccess  "$D/" 2>&1 || echo "cp .htaccess FAILED for $D"
+        cp -Rf media       "$D/" 2>&1 || echo "cp media FAILED for $D"
+        cp -Rf data        "$D/" 2>&1 || true
+        echo "-- wrote: $D"
+        ls -la "$D"
+      done
       echo "== done"
