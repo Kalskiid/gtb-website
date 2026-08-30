@@ -193,10 +193,7 @@ button { font: inherit; cursor: pointer; }
   padding-top: calc(var(--header-h) + 40px);
   padding-bottom: 80px;
   overflow: hidden;
-  background:
-    radial-gradient(1200px 600px at 90% -10%, rgba(0,87,255,.10), transparent 60%),
-    radial-gradient(900px 500px at -10% 30%, rgba(0,194,168,.10), transparent 60%),
-    var(--bg);
+  background: var(--bg);
 }
 .hero-bg {
   position: absolute; inset: 0;
@@ -211,7 +208,7 @@ button { font: inherit; cursor: pointer; }
 }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,.4) 0%, #ffffff 92%);
+  background: rgba(255, 255, 255, 0.82);
 }
 .hero-inner {
   position: relative;
@@ -227,10 +224,7 @@ button { font: inherit; cursor: pointer; }
   margin: 18px 0 20px;
 }
 .grad-text {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--primary);
 }
 .hero-sub {
   color: var(--text-soft);
@@ -270,7 +264,7 @@ button { font: inherit; cursor: pointer; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0,87,255,.06), rgba(0,194,168,.06));
+  background: rgba(0, 87, 255, 0.05);
   opacity: 0;
   transition: opacity .3s var(--ease);
   pointer-events: none;
@@ -286,7 +280,7 @@ button { font: inherit; cursor: pointer; }
   position: absolute;
   top: 0; left: 0;
   width: 44px; height: 3px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
+  background: var(--primary);
   border-radius: 0 0 3px 0;
   transition: width .3s var(--ease);
 }
