@@ -1,23 +1,27 @@
 ---
-# cPanel Git Version Control auto-deploy for SuperHosting.bg
-#
-# If globaltopbrands.eu is your PRIMARY domain on this cPanel account,
-# leave DEPLOYPATH as-is ($HOME/public_html/).
-#
-# If it's an ADDON or PARKED domain, change DEPLOYPATH to the correct
-# document root shown in cPanel > Domains, e.g.:
-#   $HOME/domains/globaltopbrands.eu/public_html/
-#   $HOME/public_html/globaltopbrands.eu/
-#
+# Auto-detect doc root for globaltopbrands.eu on SuperHosting.bg
+# Copies files into whichever of these exists first:
+#   1. $HOME/domains/globaltopbrands.eu/public_html/     (addon, SuperHosting default)
+#   2. $HOME/public_html/globaltopbrands.eu/             (addon, cPanel default)
+#   3. $HOME/public_html/                                (primary domain)
 deployment:
   tasks:
-    - export DEPLOYPATH=$HOME/public_html/
-    - /bin/mkdir -p $DEPLOYPATH
-    - /bin/cp -f index.html    $DEPLOYPATH
-    - /bin/cp -f styles.css    $DEPLOYPATH
-    - /bin/cp -f script.js     $DEPLOYPATH
-    - /bin/cp -f robots.txt    $DEPLOYPATH 2>/dev/null || true
-    - /bin/cp -f sitemap.xml   $DEPLOYPATH 2>/dev/null || true
-    - /bin/cp -f .htaccess     $DEPLOYPATH 2>/dev/null || true
-    - /bin/cp -Rf media        $DEPLOYPATH
-    - /bin/cp -Rf data         $DEPLOYPATH 2>/dev/null || true
+    - >-
+      set -e;
+      for D in "$HOME/domains/globaltopbrands.eu/public_html" "$HOME/public_html/globaltopbrands.eu" "$HOME/public_html"; do
+        if [ -d "$D" ]; then
+          DEPLOYPATH="$D/";
+          echo "Deploying to $DEPLOYPATH";
+          /bin/cp -f index.html   "$DEPLOYPATH";
+          /bin/cp -f styles.css   "$DEPLOYPATH";
+          /bin/cp -f script.js    "$DEPLOYPATH";
+          /bin/cp -f .htaccess    "$DEPLOYPATH" 2>/dev/null || true;
+          /bin/cp -f robots.txt   "$DEPLOYPATH" 2>/dev/null || true;
+          /bin/cp -f sitemap.xml  "$DEPLOYPATH" 2>/dev/null || true;
+          /bin/cp -Rf media       "$DEPLOYPATH" 2>/dev/null || true;
+          /bin/cp -Rf data        "$DEPLOYPATH" 2>/dev/null || true;
+          exit 0;
+        fi;
+      done;
+      echo "ERROR: No known document root for globaltopbrands.eu was found under $HOME";
+      exit 1
