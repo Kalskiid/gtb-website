@@ -1,0 +1,111 @@
+##
+# Pages CMS configuration
+# Docs: https://pagescms.org/docs/configuration
+##
+
+media: media
+content:
+
+  # ---------- SEO / Site meta (single-file settings) ----------
+  - name: seo
+    label: SEO & Site Meta
+    path: data/seo.json
+    type: file
+    format: json
+    fields:
+      - { name: title,       label: Site Title,       type: string, required: true }
+      - { name: description, label: Meta Description, type: text }
+      - { name: keywords,    label: Meta Keywords,    type: string }
+      - { name: og_image,    label: Social Share Image, type: image }
+
+  # ---------- Hero (single file) ----------
+  - name: hero
+    label: Hero Section
+    path: data/hero.json
+    type: file
+    format: json
+    fields:
+      - { name: eyebrow,   label: Eyebrow,          type: string }
+      - { name: title,     label: Headline,         type: string, required: true }
+      - { name: highlight, label: Highlighted Word, type: string }
+      - { name: subtitle,  label: Sub-headline,     type: text }
+      - { name: cta_label, label: CTA Button Text,  type: string }
+      - { name: cta_href,  label: CTA Link,         type: string, default: "#contact" }
+      - { name: background_image, label: Background Image, type: image }
+
+  # ---------- Why Us (repeatable cards) ----------
+  - name: why_us
+    label: Why Us
+    path: data/why-us
+    type: collection
+    format: json
+    view:
+      fields: [title]
+    fields:
+      - { name: title,       label: Title,               type: string, required: true }
+      - { name: description, label: Description,         type: text,   required: true }
+      - { name: order,       label: Sort Order,          type: number }
+
+  # ---------- Auto-scrolling logo banner ----------
+  - name: logos_marquee
+    label: Scrolling Logo Banner
+    path: data/logos-marquee
+    type: collection
+    format: json
+    view:
+      fields: [name, url]
+    fields:
+      - { name: name,  label: Brand Name,   type: string, required: true }
+      - { name: logo,  label: Logo Image,   type: image,  required: true }
+      - { name: url,   label: Link URL,     type: string, required: true, pattern: "^https?://" }
+      - { name: order, label: Sort Order,   type: number }
+
+  # ---------- Services (repeatable) ----------
+  - name: services
+    label: Services
+    path: data/services
+    type: collection
+    format: json
+    view:
+      fields: [number, title]
+    fields:
+      - { name: number,      label: Step Number,  type: string }
+      - { name: title,       label: Title,        type: string, required: true }
+      - { name: description, label: Description,  type: text,   required: true }
+      - { name: order,       label: Sort Order,   type: number }
+
+  # ---------- Brands (repeatable logos) ----------
+  - name: brands
+    label: Brand Network
+    path: data/brands
+    type: collection
+    format: json
+    view:
+      fields: [name, url]
+    fields:
+      - { name: name,        label: Brand Name,   type: string, required: true }
+      - { name: tld,         label: TLD (.bg/.com), type: string }
+      - { name: url,         label: Website URL,  type: string, required: true, pattern: "^https?://" }
+      - { name: tagline,     label: Tagline,      type: string }
+      - { name: logo,        label: Logo (optional), type: image }
+      - { name: order,       label: Sort Order,   type: number }
+
+  # ---------- Contact (single file) ----------
+  - name: contact
+    label: Contact Info
+    path: data/contact.json
+    type: file
+    format: json
+    fields:
+      - { name: email,   label: Email,   type: string, pattern: "^[^@]+@[^@]+\\.[^@]+$" }
+      - { name: phone,   label: Phone,   type: string }
+      - { name: address, label: Address, type: string }
+      - { name: hours,   label: Hours,   type: string }
+      - { name: formspree_endpoint, label: Formspree Endpoint URL, type: string,
+          description: "e.g. https://formspree.io/f/xxxxxxx" }
+
+settings:
+  content: content
+  media:
+    input: media
+    output: /media
