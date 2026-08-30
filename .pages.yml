@@ -90,6 +90,34 @@ content:
       - { name: logo,        label: Logo (optional), type: image }
       - { name: order,       label: Sort Order,   type: number }
 
+  # ---------- Supplier brands (repeatable partner logos) ----------
+  - name: suppliers
+    label: Supplier Brands
+    path: data/suppliers
+    type: collection
+    format: json
+    view:
+      fields: [name]
+    fields:
+      - { name: name,  label: Brand Name, type: string, required: true }
+      - { name: logo,  label: Logo Image, type: image }
+      - { name: url,   label: Website URL (optional), type: string }
+      - { name: order, label: Sort Order, type: number }
+
+  # ---------- Telemarketing (single file) ----------
+  - name: telemarketing
+    label: Telemarketing Section
+    path: data/telemarketing.json
+    type: file
+    format: json
+    fields:
+      - { name: eyebrow,  label: Eyebrow,     type: string }
+      - { name: title,    label: Headline,    type: string, required: true }
+      - { name: lead,     label: Lead Paragraph, type: text }
+      - { name: bullets,  label: Feature Bullets, type: string, list: true }
+      - { name: image_main,  label: Main Image,  type: image }
+      - { name: image_inset, label: Inset Image, type: image }
+
   # ---------- Contact (single file) ----------
   - name: contact
     label: Contact Info
@@ -99,7 +127,6 @@ content:
     fields:
       - { name: email,   label: Email,   type: string, pattern: "^[^@]+@[^@]+\\.[^@]+$" }
       - { name: phone,   label: Phone,   type: string }
-      - { name: address, label: Address, type: string }
       - { name: hours,   label: Hours,   type: string }
       - { name: formspree_endpoint, label: Formspree Endpoint URL, type: string,
           description: "e.g. https://formspree.io/f/xxxxxxx" }
