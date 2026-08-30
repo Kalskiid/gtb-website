@@ -1,27 +1,27 @@
 ---
-# Auto-detect doc root for globaltopbrands.eu on SuperHosting.bg
-# Copies files into whichever of these exists first:
-#   1. $HOME/domains/globaltopbrands.eu/public_html/     (addon, SuperHosting default)
-#   2. $HOME/public_html/globaltopbrands.eu/             (addon, cPanel default)
-#   3. $HOME/public_html/                                (primary domain)
+# Write to every plausible doc root for globaltopbrands.eu.
+# Whichever cPanel actually serves for the domain wins.
+# Creates the dir if missing (SuperHosting sometimes provisions on first write).
 deployment:
   tasks:
     - >-
-      set -e;
-      for D in "$HOME/domains/globaltopbrands.eu/public_html" "$HOME/public_html/globaltopbrands.eu" "$HOME/public_html"; do
-        if [ -d "$D" ]; then
-          DEPLOYPATH="$D/";
-          echo "Deploying to $DEPLOYPATH";
-          /bin/cp -f index.html   "$DEPLOYPATH";
-          /bin/cp -f styles.css   "$DEPLOYPATH";
-          /bin/cp -f script.js    "$DEPLOYPATH";
-          /bin/cp -f .htaccess    "$DEPLOYPATH" 2>/dev/null || true;
-          /bin/cp -f robots.txt   "$DEPLOYPATH" 2>/dev/null || true;
-          /bin/cp -f sitemap.xml  "$DEPLOYPATH" 2>/dev/null || true;
-          /bin/cp -Rf media       "$DEPLOYPATH" 2>/dev/null || true;
-          /bin/cp -Rf data        "$DEPLOYPATH" 2>/dev/null || true;
-          exit 0;
-        fi;
+      set -x;
+      echo "== HOME: $HOME";
+      ls -la "$HOME" || true;
+      ls -la "$HOME/domains" 2>/dev/null || true;
+      for D in \
+          "$HOME/domains/globaltopbrands.eu/public_html" \
+          "$HOME/public_html/globaltopbrands.eu" \
+          "$HOME/public_html"; do
+        echo "-- target: $D";
+        mkdir -p "$D" 2>/dev/null || { echo "mkdir failed for $D"; continue; };
+        cp -f index.html   "$D/" 2>&1 || echo "cp index.html failed";
+        cp -f styles.css   "$D/" 2>&1 || echo "cp styles.css failed";
+        cp -f script.js    "$D/" 2>&1 || echo "cp script.js failed";
+        cp -f .htaccess    "$D/" 2>&1 || echo "cp .htaccess failed";
+        cp -Rf media       "$D/" 2>&1 || echo "cp media failed";
+        cp -Rf data        "$D/" 2>&1 || true;
+        echo "-- wrote: $D";
+        ls -la "$D";
       done;
-      echo "ERROR: No known document root for globaltopbrands.eu was found under $HOME";
-      exit 1
+      echo "== done"
