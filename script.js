@@ -38,11 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  /* ---------- Marquee: duplicate items for seamless loop ---------- */
+  /* ---------- Marquee: seamless loop via 2x cloning ----------
+     Step 1: inflate original items inline until we have >= 8 (fills wide containers).
+     Step 2: duplicate the whole inflated set once so the -50% keyframe seams cleanly. */
   document.querySelectorAll('.marquee-track').forEach(track => {
     const originals = [...track.children];
     if (!originals.length) return;
-    originals.forEach(node => {
+    while (track.children.length < 8) {
+      originals.forEach(node => track.appendChild(node.cloneNode(true)));
+    }
+    [...track.children].forEach(node => {
       const clone = node.cloneNode(true);
       clone.setAttribute('aria-hidden', 'true');
       clone.setAttribute('tabindex', '-1');
