@@ -45,7 +45,7 @@ content:
         label: Footer
         type: object
         fields:
-          - { name: copyright, label: Copyright line (use {year} for current year), type: string }
+          - { name: copyright, label: "Copyright line (use {year} for current year)", type: string }
 
   # ---------- Hero section ----------
   - name: hero
@@ -189,11 +189,9 @@ content:
       - { name: subtitle,   label: Subtitle,         type: text }
       - { name: email,      label: Public email,     type: string, pattern: "^[^@]+@[^@]+\\.[^@]+$" }
       - { name: phone,      label: Public phone,     type: string }
-      - { name: phone_href, label: Phone tel: value, type: string }
+      - { name: phone_href, label: "Phone tel: value", type: string }
       - { name: hours,      label: Hours,            type: string }
-      - { name: send_to,    label: Form recipient email, type: string,
-          description: "Address that receives inquiries submitted from the contact form.",
-          pattern: "^[^@]+@[^@]+\\.[^@]+$" }
+      - { name: send_to,    label: "Form recipient email", type: string, pattern: "^[^@]+@[^@]+\\.[^@]+$", description: "Address that receives inquiries submitted from the contact form." }
       - { name: form_success, label: Success message, type: string }
       - { name: form_error,   label: Error message,   type: string }
       - { name: form_button,  label: Submit button label, type: string }
