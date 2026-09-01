@@ -1,0 +1,13 @@
+{
+  "eyebrow": "Get in touch",
+  "title": "Request a quote in under 24 hours.",
+  "subtitle": "Tell us what you need. We'll come back with pricing, lead time, and logistics options.",
+  "email": "b2b@globaltopbrands.eu",
+  "phone": "+359 88 900 75 84",
+  "phone_href": "+359889007584",
+  "hours": "Mon–Fri · 09:00–18:00 EET",
+  "send_to": "b2b@globaltopbrands.eu",
+  "form_success": "Thanks — we'll reply within 24 hours.",
+  "form_error":   "Something went wrong. Please email us directly.",
+  "form_button":  "Send Inquiry"
+}

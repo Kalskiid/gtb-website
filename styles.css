@@ -26,7 +26,13 @@
 
 /* ============ RESET-ISH ============ */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
 body {
   margin: 0;
   font-family: var(--font);
@@ -35,6 +41,8 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  min-width: 320px;
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -424,6 +432,9 @@ button { font: inherit; cursor: pointer; }
 .form-note.success { color: #0a8f5a; }
 .form-note.error   { color: #c8302c; }
 
+/* honeypot: hidden from humans, visible to naive bots */
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
 /* ============ FOOTER ============ */
 .site-footer {
   padding: 32px 0;
@@ -599,6 +610,11 @@ button { font: inherit; cursor: pointer; }
   position: relative;
   mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  contain: layout paint;
 }
 .marquee-track {
   display: flex;
@@ -607,6 +623,9 @@ button { font: inherit; cursor: pointer; }
   align-items: center;
   animation: marquee-scroll 30s linear infinite;
   will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0,0,0);
 }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 .marquee-item {
@@ -682,4 +701,17 @@ button { font: inherit; cursor: pointer; }
   .hero-stats { gap: 28px; margin-top: 48px; }
   .contact-list li { grid-template-columns: 90px 1fr; }
   .contact-form { padding: 24px; }
+
+  /* Marquee — mobile safe: iOS Safari drops mask-image + animated child on scroll.
+     Drop mask on mobile and speed up so motion reads. */
+  .marquee {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .marquee .marquee-track            { animation-duration: 20s; gap: 40px; }
+  .site-brand-marquee .marquee-track { animation-duration: 14s; gap: 32px; }
+  .marquee-suppliers .marquee-track  { animation-duration: 30s; gap: 32px; }
 }
+
+/* Prevent site-block grid items overflowing horizontally on narrower viewports */
+.site-block-brands, .site-block-copy { min-width: 0; }

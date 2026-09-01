@@ -1,0 +1,16 @@
+{
+  "eyebrow": "Wholesale · B2B & B2C",
+  "title_line1": "Premium products,",
+  "title_line2": "sourced at scale.",
+  "subtitle": "End-to-end sourcing, warehousing, and logistics for retailers, resellers, and enterprise buyers across Europe.",
+  "cta_primary_label": "Request a Quote",
+  "cta_primary_href": "#contact",
+  "cta_secondary_label": "Explore Services",
+  "cta_secondary_href": "#services",
+  "background_image": "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1920&q=80",
+  "stats": [
+    { "value": "25+",   "label": "Projects delivered" },
+    { "value": "5",     "label": "Own stores" },
+    { "value": "100k+", "label": "SKUs handled" }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "eyebrow": "Our Network",
+  "title": "Our wholesale storefronts across Europe.",
+  "subtitle": "Five B2B/B2C sites, one operational backbone.",
+  "sites": [
+    {
+      "logo": "media/brands/purelife.png",
+      "category": "Health & wellness",
+      "name": "purelife",
+      "tld": ".bg",
+      "url": "https://purelife.bg",
+      "description": "Our own PureLife wellness label plus curated European partners. Air purification, personal care and healthy-living products for the modern home.",
+      "cta_label": "Visit Site ↗",
+      "brands_label": "Featured brands",
+      "brands": [
+        { "name": "PureLife", "logo": "media/brands/purelife.png" },
+        { "name": "Vitesy",   "logo": "media/suppliers/vitesy.png" }
+      ]
+    },
+    {
+      "logo": "media/brands/kroneks.png",
+      "category": "Timepieces & accessories",
+      "name": "kroneks",
+      "tld": ".com",
+      "url": "https://kroneks.com",
+      "description": "Authorized retail of the world's leading watch brands. Distribution across Bulgaria and the EU with full manufacturer warranty.",
+      "cta_label": "Visit Site ↗",
+      "brands_label": "Featured brands",
+      "brands": [
+        { "name": "Casio",           "logo": "media/suppliers/casio.png" },
+        { "name": "G-Shock",         "logo": "media/suppliers/g-shock.png" },
+        { "name": "Citizen",         "logo": "media/suppliers/citizen.png" },
+        { "name": "Seiko",           "logo": "media/suppliers/seiko.png" },
+        { "name": "Fossil",          "logo": "media/suppliers/fossil.png" },
+        { "name": "Guess",           "logo": "media/suppliers/guess.png" },
+        { "name": "Armani Exchange", "logo": "media/suppliers/armani-exchange.png" },
+        { "name": "Orient",          "logo": "media/suppliers/orient.png" }
+      ]
+    },
+    {
+      "logo": "media/brands/megaoferti.png",
+      "category": "Deals & lifestyle retail",
+      "name": "megaoferti",
+      "tld": ".bg",
+      "url": "https://megaoferti.bg",
+      "description": "Deals-driven online retail. Weekly promotions across kitchen, home, personal care and lifestyle categories from leading European brands.",
+      "cta_label": "Visit Site ↗",
+      "brands_label": "Featured brands",
+      "brands": [
+        { "name": "Ariete",         "logo": "media/suppliers/ariete.png" },
+        { "name": "Tefal",          "logo": "media/suppliers/tefal.png" },
+        { "name": "First Austria",  "logo": "media/suppliers/first-austria.png" },
+        { "name": "Adler",          "logo": "media/suppliers/adler.png" },
+        { "name": "Kumtel",         "logo": "media/suppliers/kumtel.png" },
+        { "name": "Royalty Line",   "logo": "media/suppliers/royalty-line.png" },
+        { "name": "Berlinger Haus", "logo": "media/suppliers/berlinger-haus.png" },
+        { "name": "Oliver Voltz",   "logo": "media/suppliers/oliver-voltz.png" },
+        { "name": "Rosberg",        "logo": "media/suppliers/rosberg.png" }
+      ]
+    },
+    {
+      "logo": "media/brands/turbotronic.png",
+      "category": "Small appliances flagship",
+      "name": "turbotronic",
+      "tld": ".bg",
+      "url": "https://turbotronic.bg",
+      "description": "Direct-to-consumer flagship for the TurboTronic small-appliance brand. Vacuum cleaners, kitchen appliances and personal care with full aftersales support.",
+      "cta_label": "Visit Site ↗",
+      "brands_label": "Featured brand",
+      "brands": [
+        { "name": "TurboTronic", "logo": "media/suppliers/turbotronic.png" }
+      ]
+    },
+    {
+      "logo": "media/brands/technosklad.png",
+      "category": "Consumer electronics",
+      "name": "technosklad",
+      "tld": ".bg",
+      "url": "https://technosklad.bg",
+      "description": "Consumer electronics and small appliances at wholesale-friendly pricing — kitchen, home and lifestyle categories from established European manufacturers.",
+      "cta_label": "Visit Site ↗",
+      "brands_label": "Featured brands",
+      "brands": [
+        { "name": "Ariete",         "logo": "media/suppliers/ariete.png" },
+        { "name": "Tefal",          "logo": "media/suppliers/tefal.png" },
+        { "name": "First Austria",  "logo": "media/suppliers/first-austria.png" },
+        { "name": "Adler",          "logo": "media/suppliers/adler.png" },
+        { "name": "Kumtel",         "logo": "media/suppliers/kumtel.png" },
+        { "name": "Berlinger Haus", "logo": "media/suppliers/berlinger-haus.png" },
+        { "name": "TurboTronic",    "logo": "media/suppliers/turbotronic.png" }
+      ]
+    }
+  ]
+}

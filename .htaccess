@@ -26,6 +26,8 @@ DirectoryIndex index.html
   ExpiresByType image/webp               "access plus 30 days"
   ExpiresByType image/svg+xml            "access plus 30 days"
   ExpiresByType font/woff2               "access plus 1 year"
+  # CMS JSON — short cache so content edits reflect quickly
+  ExpiresByType application/json         "access plus 5 minutes"
 </IfModule>
 
 # ---------- Security headers ----------

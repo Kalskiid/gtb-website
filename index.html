@@ -2,13 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="{{ seo.description }}" data-cms="seo.description" />
-  <meta name="keywords" content="{{ seo.keywords }}" data-cms="seo.keywords" />
-  <meta property="og:title" content="{{ seo.title }}" />
-  <meta property="og:description" content="{{ seo.description }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover" />
+
+  <title data-cms="site.seo.title">Global Top Brands — Wholesale, White Label & Telemarketing</title>
+  <meta name="description" data-cms="site.seo.description" data-cms-attr="content" content="Global Top Brands — European wholesale, white-label bedding, small appliances, timepieces and B2B/B2C fulfilment. 25+ projects delivered, 5 own stores, 100k+ SKUs handled." />
+  <meta name="keywords" data-cms="site.seo.keywords" data-cms-attr="content" content="wholesale, B2B, B2C, white label, bedding, small appliances, timepieces, telemarketing, Bulgaria, Europe, fulfillment" />
+  <link rel="canonical" data-cms="site.seo.canonical" data-cms-attr="href" href="https://globaltopbrands.eu/" />
+  <meta name="theme-color" content="#0057ff" />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Global Top Brands" />
+  <meta property="og:title" data-cms="site.seo.title" data-cms-attr="content" content="Global Top Brands — Wholesale, White Label & Telemarketing" />
+  <meta property="og:description" data-cms="site.seo.description" data-cms-attr="content" content="European wholesale partner: bulk sourcing, white-label bedding, telemarketing, EU logistics. 25+ projects delivered · 5 own stores · 100k+ SKUs handled." />
   <meta property="og:type" content="website" />
-  <title>Global Top Brands — Wholesale, White Label & Telemarketing</title>
+  <meta property="og:url" data-cms="site.seo.canonical" data-cms-attr="content" content="https://globaltopbrands.eu/" />
+  <meta property="og:image" content="https://globaltopbrands.eu/media/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Global Top Brands — Your Best Partner" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" data-cms="site.seo.title" data-cms-attr="content" content="Global Top Brands — Wholesale, White Label & Telemarketing" />
+  <meta name="twitter:description" data-cms="site.seo.description" data-cms-attr="content" content="European wholesale partner: bulk sourcing, white-label bedding, telemarketing, EU logistics." />
+  <meta name="twitter:image" content="https://globaltopbrands.eu/media/og-image.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="media/favicon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="media/favicon-512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,10 +47,11 @@
   <header id="site-header" class="site-header">
     <div class="container header-inner">
       <a href="#hero" class="brand" aria-label="Global Top Brands">
-        <img src="media/logo.png" alt="Global Top Brands — Your Best Partner" class="brand-logo-img" />
+        <img src="media/logo.png" alt="Global Top Brands — Your Best Partner" class="brand-logo-img"
+             data-cms="site.brand.logo" data-cms-attr="src" />
       </a>
 
-      <nav class="nav" aria-label="Primary">
+      <nav class="nav" aria-label="Primary" data-cms-list="site.nav" data-cms-template="#tpl-nav">
         <a href="#why-us">Why Us</a>
         <a href="#services">Services</a>
         <a href="#brands">Our Sites</a>
@@ -34,8 +59,10 @@
         <a href="#telemarketing">Telemarketing</a>
         <a href="#contact">Contact</a>
       </nav>
+      <template id="tpl-nav"><a href="{{href}}">{{label}}</a></template>
 
-      <a href="#contact" class="btn btn-primary btn-cta">Request a Quote</a>
+      <a href="#contact" class="btn btn-primary btn-cta"
+         data-cms="site.brand.cta_label">Request a Quote</a>
 
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -46,29 +73,34 @@
   <!-- ================= HERO ================= -->
   <section id="hero" class="hero">
     <div class="hero-bg" aria-hidden="true">
-      <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1920&q=80" alt="" />
+      <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1920&q=80" alt=""
+           data-cms="hero.background_image" data-cms-attr="src" />
       <div class="hero-overlay"></div>
     </div>
 
     <div class="container hero-inner">
-      <p class="eyebrow" data-aos="fade-up">Wholesale · B2B & B2C</p>
+      <p class="eyebrow" data-aos="fade-up" data-cms="hero.eyebrow">Wholesale · B2B & B2C</p>
       <h1 class="hero-title" data-aos="fade-up" data-aos-delay="80">
-        Premium products,<br />
-        <span class="grad-text">sourced at scale.</span>
+        <span data-cms="hero.title_line1">Premium products,</span><br />
+        <span class="grad-text" data-cms="hero.title_line2">sourced at scale.</span>
       </h1>
-      <p class="hero-sub" data-aos="fade-up" data-aos-delay="160">
+      <p class="hero-sub" data-aos="fade-up" data-aos-delay="160" data-cms="hero.subtitle">
         End-to-end sourcing, warehousing, and logistics for retailers, resellers, and enterprise buyers across Europe.
       </p>
       <div class="hero-cta" data-aos="fade-up" data-aos-delay="240">
-        <a href="#contact" class="btn btn-primary btn-lg">Request a Quote</a>
-        <a href="#services" class="btn btn-ghost btn-lg">Explore Services</a>
+        <a href="#contact" class="btn btn-primary btn-lg"
+           data-cms="hero.cta_primary_label">Request a Quote</a>
+        <a href="#services" class="btn btn-ghost btn-lg"
+           data-cms="hero.cta_secondary_label">Explore Services</a>
       </div>
 
-      <div class="hero-stats" data-aos="fade-up" data-aos-delay="320">
-        <div><strong>12+</strong><span>Years operating</span></div>
-        <div><strong>5</strong><span>Wholesale sites</span></div>
-        <div><strong>10k+</strong><span>SKUs handled</span></div>
+      <div class="hero-stats" data-aos="fade-up" data-aos-delay="320"
+           data-cms-list="hero.stats" data-cms-template="#tpl-stat">
+        <div><strong>25+</strong><span>Projects delivered</span></div>
+        <div><strong>5</strong><span>Own stores</span></div>
+        <div><strong>100k+</strong><span>SKUs handled</span></div>
       </div>
+      <template id="tpl-stat"><div><strong>{{value}}</strong><span>{{label}}</span></div></template>
     </div>
   </section>
 
@@ -76,38 +108,20 @@
   <section id="why-us" class="section">
     <div class="container">
       <header class="section-head" data-aos="fade-up">
-        <p class="eyebrow">Why partner with us</p>
-        <h2>Wholesale advantages, engineered for growth.</h2>
-        <p class="section-sub">Whether you order a pallet or a full container, we optimize for margin, speed, and reliability.</p>
+        <p class="eyebrow"       data-cms="why_us.eyebrow">Why partner with us</p>
+        <h2                       data-cms="why_us.title">Wholesale advantages, engineered for growth.</h2>
+        <p class="section-sub"   data-cms="why_us.subtitle">Whether you order a pallet or a full container, we optimize for margin, speed, and reliability.</p>
       </header>
 
-      <div class="grid grid-3">
-        <!-- CMS repeatable: why_us[] -->
-        <article class="card" data-aos="fade-up">
-          <h3>Bulk Pricing</h3>
-          <p>Tiered discounts that scale with order volume — transparent, predictable, negotiable.</p>
-        </article>
-        <article class="card" data-aos="fade-up" data-aos-delay="80">
-          <h3>Reliable Logistics</h3>
-          <p>Consolidated shipping, tracked delivery, EU-wide fulfillment from our regional warehouses.</p>
-        </article>
-        <article class="card" data-aos="fade-up" data-aos-delay="160">
-          <h3>Verified Suppliers</h3>
-          <p>Every partner audited for quality, compliance, and lead-time stability.</p>
-        </article>
-        <article class="card" data-aos="fade-up" data-aos-delay="240">
-          <h3>Fast Turnaround</h3>
-          <p>Quotes within 24h. Stocked lines ship the same day.</p>
-        </article>
-        <article class="card" data-aos="fade-up" data-aos-delay="320">
-          <h3>B2B & B2C Ready</h3>
-          <p>Serve wholesalers, marketplaces, and direct-to-consumer flows from one supply chain.</p>
-        </article>
-        <article class="card" data-aos="fade-up" data-aos-delay="400">
-          <h3>White Label Ready</h3>
-          <p>Private-label production of bedding, packaging and consumer goods built to your brand specification.</p>
-        </article>
+      <div class="grid grid-3" data-cms-list="why_us.cards" data-cms-template="#tpl-why">
+        <article class="card" data-aos="fade-up"><h3>Bulk Pricing</h3><p>Tiered discounts that scale with order volume — transparent, predictable, negotiable.</p></article>
+        <article class="card" data-aos="fade-up"><h3>Reliable Logistics</h3><p>Consolidated shipping, tracked delivery, EU-wide fulfillment from our regional warehouses.</p></article>
+        <article class="card" data-aos="fade-up"><h3>Verified Suppliers</h3><p>Every partner audited for quality, compliance, and lead-time stability.</p></article>
+        <article class="card" data-aos="fade-up"><h3>Fast Turnaround</h3><p>Quotes within 24h. Stocked lines ship the same day.</p></article>
+        <article class="card" data-aos="fade-up"><h3>B2B & B2C Ready</h3><p>Serve wholesalers, marketplaces, and direct-to-consumer flows from one supply chain.</p></article>
+        <article class="card" data-aos="fade-up"><h3>White Label Ready</h3><p>Private-label production of bedding, packaging and consumer goods built to your brand specification.</p></article>
       </div>
+      <template id="tpl-why"><article class="card" data-aos="fade-up"><h3>{{title}}</h3><p>{{description}}</p></article></template>
     </div>
   </section>
 
@@ -115,214 +129,49 @@
   <section id="services" class="section section-alt">
     <div class="container">
       <header class="section-head" data-aos="fade-up">
-        <p class="eyebrow">Services</p>
-        <h2>Everything between the factory and your shelf.</h2>
+        <p class="eyebrow" data-cms="services.eyebrow">Services</p>
+        <h2                data-cms="services.title">Everything between the factory and your shelf.</h2>
       </header>
 
-      <div class="grid grid-2 services-grid">
-        <!-- CMS repeatable: services[] -->
-        <article class="service" data-aos="fade-right">
-          <div class="service-num">01</div>
-          <div>
-            <h3>Bulk Sourcing</h3>
-            <p>Direct-from-manufacturer procurement across electronics, home goods, and lifestyle categories.</p>
-          </div>
-        </article>
-        <article class="service" data-aos="fade-left">
-          <div class="service-num">02</div>
-          <div>
-            <h3>Logistics & Fulfillment</h3>
-            <p>Warehousing, pick-pack, cross-border shipping, customs handling — all in one contract.</p>
-          </div>
-        </article>
-        <article class="service" data-aos="fade-right">
-          <div class="service-num">03</div>
-          <div>
-            <h3>White Label Bedding</h3>
-            <p>Custom-branded comforters, pillows and bed linen produced in bulk to your specification.</p>
-          </div>
-        </article>
-        <article class="service" data-aos="fade-left">
-          <div class="service-num">04</div>
-          <div>
-            <h3>Wholesale Distribution</h3>
-            <p>EU-wide bulk distribution across small appliances, electronics, timepieces and home textiles.</p>
-          </div>
-        </article>
+      <div class="grid grid-2 services-grid" data-cms-list="services.items" data-cms-template="#tpl-service">
+        <article class="service" data-aos="fade-right"><div class="service-num">01</div><div><h3>Bulk Sourcing</h3><p>Direct-from-manufacturer procurement across electronics, home goods, and lifestyle categories.</p></div></article>
+        <article class="service" data-aos="fade-left"><div class="service-num">02</div><div><h3>Logistics & Fulfillment</h3><p>Warehousing, pick-pack, cross-border shipping, customs handling — all in one contract.</p></div></article>
+        <article class="service" data-aos="fade-right"><div class="service-num">03</div><div><h3>White Label Bedding</h3><p>Custom-branded comforters, pillows and bed linen produced in bulk to your specification.</p></div></article>
+        <article class="service" data-aos="fade-left"><div class="service-num">04</div><div><h3>Wholesale Distribution</h3><p>EU-wide bulk distribution across small appliances, electronics, timepieces and home textiles.</p></div></article>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= OWN SITES (stacked) ================= -->
-  <section id="brands" class="section">
-    <div class="container">
-      <header class="section-head" data-aos="fade-up">
-        <p class="eyebrow">Our Network</p>
-        <h2>Our wholesale storefronts across Europe.</h2>
-        <p class="section-sub">Five B2B/B2C sites, one operational backbone.</p>
-      </header>
-
-      <!-- ---------- purelife.bg ---------- -->
-      <article class="site-block" data-aos="fade-up">
-        <div class="site-block-copy">
-          <a href="https://purelife.bg" target="_blank" rel="noopener" class="site-block-logo-link">
-            <img src="media/brands/purelife.png" alt="purelife.bg" class="site-block-logo" onerror="this.style.display='none'" />
-          </a>
-          <p class="site-block-cat">Health & wellness</p>
-          <h3 class="site-block-title">purelife<span>.bg</span></h3>
-          <p class="site-block-desc">Our own PureLife wellness label plus curated European partners. Air purification, personal care and healthy-living products for the modern home.</p>
-          <a href="https://purelife.bg" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Visit Site ↗</a>
-        </div>
-        <div class="site-block-brands">
-          <p class="site-block-brands-label">Featured brands</p>
-          <div class="marquee site-brand-marquee">
-            <div class="marquee-track">
-              <span class="marquee-item"><img src="media/brands/purelife.png" alt="PureLife" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'PureLife'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/vitesy.png" alt="Vitesy"  onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Vitesy'}))"/></span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- ---------- kroneks.com ---------- -->
-      <article class="site-block" data-aos="fade-up">
-        <div class="site-block-copy">
-          <a href="https://kroneks.com" target="_blank" rel="noopener" class="site-block-logo-link">
-            <img src="media/brands/kroneks.png" alt="kroneks.com" class="site-block-logo" onerror="this.style.display='none'" />
-          </a>
-          <p class="site-block-cat">Timepieces & accessories</p>
-          <h3 class="site-block-title">kroneks<span>.com</span></h3>
-          <p class="site-block-desc">Authorized retail of the world's leading watch brands. Distribution across Bulgaria and the EU with full manufacturer warranty.</p>
-          <a href="https://kroneks.com" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Visit Site ↗</a>
-        </div>
-        <div class="site-block-brands">
-          <p class="site-block-brands-label">Featured brands</p>
-          <div class="marquee site-brand-marquee">
-            <div class="marquee-track">
-              <span class="marquee-item"><img src="media/suppliers/casio.png"           alt="Casio"           onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Casio'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/g-shock.png"         alt="G-Shock"         onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'G-Shock'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/citizen.png"         alt="Citizen"         onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Citizen'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/seiko.png"           alt="Seiko"           onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Seiko'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/fossil.png"          alt="Fossil"          onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Fossil'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/guess.png"           alt="Guess"           onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Guess'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/armani-exchange.png" alt="Armani Exchange" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Armani Exchange'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/orient.png"          alt="Orient"          onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Orient'}))"/></span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- ---------- megaoferti.bg ---------- -->
-      <article class="site-block" data-aos="fade-up">
-        <div class="site-block-copy">
-          <a href="https://megaoferti.bg" target="_blank" rel="noopener" class="site-block-logo-link">
-            <img src="media/brands/megaoferti.png" alt="megaoferti.bg" class="site-block-logo" onerror="this.style.display='none'" />
-          </a>
-          <p class="site-block-cat">Deals & lifestyle retail</p>
-          <h3 class="site-block-title">megaoferti<span>.bg</span></h3>
-          <p class="site-block-desc">Deals-driven online retail. Weekly promotions across kitchen, home, personal care and lifestyle categories from leading European brands.</p>
-          <a href="https://megaoferti.bg" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Visit Site ↗</a>
-        </div>
-        <div class="site-block-brands">
-          <p class="site-block-brands-label">Featured brands</p>
-          <div class="marquee site-brand-marquee">
-            <div class="marquee-track">
-              <span class="marquee-item"><img src="media/suppliers/ariete.png"          alt="Ariete"          onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Ariete'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/tefal.png"           alt="Tefal"           onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Tefal'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/first-austria.png"   alt="First Austria"   onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'First Austria'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/adler.png"           alt="Adler"           onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Adler'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/kumtel.png"          alt="Kumtel"          onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Kumtel'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/royalty-line.png"    alt="Royalty Line"    onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Royalty Line'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/berlinger-haus.png"  alt="Berlinger Haus"  onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Berlinger Haus'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/oliver-voltz.png"    alt="Oliver Voltz"    onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Oliver Voltz'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/rosberg.png"         alt="Rosberg"         onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Rosberg'}))"/></span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- ---------- turbotronic.bg ---------- -->
-      <article class="site-block" data-aos="fade-up">
-        <div class="site-block-copy">
-          <a href="https://turbotronic.bg" target="_blank" rel="noopener" class="site-block-logo-link">
-            <img src="media/brands/turbotronic.png" alt="turbotronic.bg" class="site-block-logo" onerror="this.style.display='none'" />
-          </a>
-          <p class="site-block-cat">Small appliances flagship</p>
-          <h3 class="site-block-title">turbotronic<span>.bg</span></h3>
-          <p class="site-block-desc">Direct-to-consumer flagship for the TurboTronic small-appliance brand. Vacuum cleaners, kitchen appliances and personal care with full aftersales support.</p>
-          <a href="https://turbotronic.bg" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Visit Site ↗</a>
-        </div>
-        <div class="site-block-brands">
-          <p class="site-block-brands-label">Featured brand</p>
-          <div class="marquee site-brand-marquee">
-            <div class="marquee-track">
-              <span class="marquee-item"><img src="media/suppliers/turbotronic.png" alt="TurboTronic" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'TurboTronic'}))"/></span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- ---------- technosklad.bg ---------- -->
-      <article class="site-block" data-aos="fade-up">
-        <div class="site-block-copy">
-          <a href="https://technosklad.bg" target="_blank" rel="noopener" class="site-block-logo-link">
-            <img src="media/brands/technosklad.png" alt="technosklad.bg" class="site-block-logo" onerror="this.style.display='none'" />
-          </a>
-          <p class="site-block-cat">Consumer electronics</p>
-          <h3 class="site-block-title">technosklad<span>.bg</span></h3>
-          <p class="site-block-desc">Consumer electronics and small appliances at wholesale-friendly pricing — kitchen, home and lifestyle categories from established European manufacturers.</p>
-          <a href="https://technosklad.bg" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Visit Site ↗</a>
-        </div>
-        <div class="site-block-brands">
-          <p class="site-block-brands-label">Featured brands</p>
-          <div class="marquee site-brand-marquee">
-            <div class="marquee-track">
-              <span class="marquee-item"><img src="media/suppliers/ariete.png"         alt="Ariete"        onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Ariete'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/tefal.png"          alt="Tefal"         onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Tefal'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/first-austria.png"  alt="First Austria" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'First Austria'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/adler.png"          alt="Adler"         onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Adler'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/kumtel.png"         alt="Kumtel"        onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Kumtel'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/berlinger-haus.png" alt="Berlinger Haus" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Berlinger Haus'}))"/></span>
-              <span class="marquee-item"><img src="media/suppliers/turbotronic.png"    alt="TurboTronic"   onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'TurboTronic'}))"/></span>
-            </div>
-          </div>
-        </div>
-      </article>
+      <template id="tpl-service"><article class="service" data-aos="fade-up"><div class="service-num">{{number}}</div><div><h3>{{title}}</h3><p>{{description}}</p></div></article></template>
     </div>
   </section>
 
   <!-- ================= SUPPLIER BRANDS ================= -->
-  <section id="suppliers" class="section section-alt">
+  <section id="suppliers" class="section">
     <div class="container">
       <header class="section-head" data-aos="fade-up">
-        <p class="eyebrow">Brands we distribute</p>
-        <h2>Trusted names on our shelves.</h2>
-        <p class="section-sub">A curated portfolio of manufacturers across small appliances, timepieces and lifestyle.</p>
+        <p class="eyebrow"     data-cms="suppliers.eyebrow">Brands we distribute</p>
+        <h2                    data-cms="suppliers.title">Trusted names on our shelves.</h2>
+        <p class="section-sub" data-cms="suppliers.subtitle">A curated portfolio of manufacturers across small appliances, timepieces and lifestyle.</p>
       </header>
 
-      <!-- CMS repeatable: suppliers[] — logos duplicated in JS for seamless loop -->
       <div class="marquee marquee-suppliers" data-aos="fade-up" aria-label="Supplier brands">
-        <div class="marquee-track">
-          <span class="marquee-item"><img src="media/suppliers/vitesy.png"          alt="Vitesy"          onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Vitesy'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/ariete.png"          alt="Ariete"          onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Ariete'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/oliver-voltz.png"    alt="Oliver Voltz"    onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Oliver Voltz'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/rosberg.png"         alt="Rosberg"         onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Rosberg'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/first-austria.png"   alt="First Austria"   onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'First Austria'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/turbotronic.png"     alt="Turbotronic"     onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Turbotronic'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/adler.png"           alt="Adler"           onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Adler'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/kumtel.png"          alt="Kumtel"          onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Kumtel'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/tefal.png"           alt="Tefal"           onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Tefal'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/royalty-line.png"    alt="Royalty Line"    onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Royalty Line'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/berlinger-haus.png"  alt="Berlinger Haus"  onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Berlinger Haus'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/casio.png"           alt="Casio"           onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Casio'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/citizen.png"         alt="Citizen"         onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Citizen'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/guess.png"           alt="Guess"           onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Guess'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/g-shock.png"         alt="G-Shock"         onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'G-Shock'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/seiko.png"           alt="Seiko"           onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Seiko'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/fossil.png"          alt="Fossil"          onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Fossil'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/armani-exchange.png" alt="Armani Exchange" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Armani Exchange'}))"/></span>
-          <span class="marquee-item"><img src="media/suppliers/orient.png"          alt="Orient"          onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:'Orient'}))"/></span>
+        <div class="marquee-track" data-cms-list="suppliers.brands" data-cms-template="#tpl-supplier">
+          <!-- default fallback: served from JSON — this stays empty until hydration -->
         </div>
+      </div>
+      <template id="tpl-supplier"><span class="marquee-item"><img src="{{logo}}" alt="{{name}}" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'marquee-text',textContent:this.alt}))"/></span></template>
+    </div>
+  </section>
+
+  <!-- ================= OWN SITES (stacked) ================= -->
+  <section id="brands" class="section section-alt">
+    <div class="container">
+      <header class="section-head" data-aos="fade-up">
+        <p class="eyebrow"     data-cms="own_sites.eyebrow">Our Network</p>
+        <h2                    data-cms="own_sites.title">Our wholesale storefronts across Europe.</h2>
+        <p class="section-sub" data-cms="own_sites.subtitle">Five B2B/B2C sites, one operational backbone.</p>
+      </header>
+
+      <div data-cms-sites>
+        <!-- populated by cms.js from data/own-sites.json → sites[] -->
       </div>
     </div>
   </section>
@@ -332,20 +181,29 @@
     <div class="container">
       <div class="feature">
         <div class="feature-copy" data-aos="fade-right">
-          <p class="eyebrow">Telemarketing service</p>
-          <h2>Direct phone sales for your end-customers.</h2>
-          <p class="feature-lead">Our in-house call center reaches consumers directly — closing sales, upselling, and handling after-sales support in Bulgarian and English.</p>
-          <ul class="feature-list">
-            <li>Trained sales agents with product-specific scripts</li>
-            <li>Outbound campaigns and inbound order handling</li>
-            <li>CRM integration and per-campaign reporting</li>
-            <li>Scales up for seasonal peaks without added overhead</li>
+          <p class="eyebrow" data-cms="telemarketing.eyebrow">Telemarketing service</p>
+          <h2                data-cms="telemarketing.title">Turn every call into revenue — guaranteed lift on the metrics that matter.</h2>
+          <p class="feature-lead" data-cms="telemarketing.lead">Our in-house call center doesn't just dial numbers — it engineers outcomes. Trained agents confirm, upsell and rescue orders in real time, so more parcels get accepted, fewer come back, and each basket is worth more.</p>
+          <ul class="feature-list" data-cms-list="telemarketing.bullets" data-cms-template="#tpl-bullet">
+            <li><strong>Higher delivery success</strong> — proactive confirmation calls raise accepted-parcel rate on COD and courier orders.</li>
+            <li><strong>Fewer returns</strong> — expectation-setting and objection handling before the parcel ships cut the return ratio.</li>
+            <li><strong>Bigger Average Order Value</strong> — scripted upsell and cross-sell add proven margin to every basket.</li>
+            <li><strong>More total turnover</strong> — combined lift on conversion, AOV and delivery rate compounds into measurable revenue growth.</li>
+            <li>Transparent per-campaign reporting on every KPI above, tied to your CRM.</li>
           </ul>
-          <a href="#contact" class="btn btn-primary btn-lg">Talk to Sales</a>
+          <template id="tpl-bullet"><li>{{@raw:.}}</li></template>
+          <a href="#contact" class="btn btn-primary btn-lg"
+             data-cms="telemarketing.cta_label">Talk to Sales</a>
         </div>
         <div class="feature-media" data-aos="fade-left">
-          <img src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=900&q=80" alt="Call center agent on headset" class="feature-img feature-img-main" />
-          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80" alt="Sales team collaborating" class="feature-img feature-img-inset" />
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80"
+               alt="Energetic call-center team wearing headsets in a modern office"
+               class="feature-img feature-img-main"
+               data-cms="telemarketing.image_main" data-cms-attr="src" />
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=600&q=80"
+               alt="Sales agents high-fiving after a successful call"
+               class="feature-img feature-img-inset"
+               data-cms="telemarketing.image_inset" data-cms-attr="src" />
         </div>
       </div>
     </div>
@@ -355,19 +213,24 @@
   <section id="contact" class="section section-alt">
     <div class="container contact-grid">
       <div class="contact-info" data-aos="fade-right">
-        <p class="eyebrow">Get in touch</p>
-        <h2>Request a quote in under 24 hours.</h2>
-        <p class="section-sub">Tell us what you need. We'll come back with pricing, lead time, and logistics options.</p>
+        <p class="eyebrow"     data-cms="contact.eyebrow">Get in touch</p>
+        <h2                    data-cms="contact.title">Request a quote in under 24 hours.</h2>
+        <p class="section-sub" data-cms="contact.subtitle">Tell us what you need. We'll come back with pricing, lead time, and logistics options.</p>
 
         <ul class="contact-list">
-          <li><strong>Email</strong><a href="mailto:b2b@globaltopbrands.eu">b2b@globaltopbrands.eu</a></li>
-          <li><strong>Phone</strong><a href="tel:+359889007584">+359 88 900 75 84</a></li>
-          <li><strong>Hours</strong><span>Mon–Fri · 09:00–18:00 EET</span></li>
+          <li><strong>Email</strong><a href="mailto:b2b@globaltopbrands.eu"
+                                       data-cms="contact.email"
+                                       data-cms-href-prefix="mailto:">b2b@globaltopbrands.eu</a></li>
+          <li><strong>Phone</strong><a href="tel:+359889007584"
+                                       data-cms="contact.phone"
+                                       data-cms-href-prefix="tel:"
+                                       data-cms-href-source="contact.phone_href">+359 88 900 75 84</a></li>
+          <li><strong>Hours</strong><span data-cms="contact.hours">Mon–Fri · 09:00–18:00 EET</span></li>
         </ul>
       </div>
 
       <form class="contact-form" data-aos="fade-left"
-            action="https://formspree.io/f/your-endpoint" method="POST">
+            action="send.php" method="POST" novalidate>
         <div class="field">
           <label for="name">Name</label>
           <input id="name" name="name" type="text" required autocomplete="name" />
@@ -381,10 +244,19 @@
           <input id="email" name="email" type="email" required autocomplete="email" />
         </div>
         <div class="field">
+          <label for="phone">Phone <span style="opacity:.5">(optional)</span></label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" />
+        </div>
+        <div class="field">
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="5" required placeholder="Products, quantities, target price, delivery country…"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Send Inquiry</button>
+        <!-- honeypot: bots fill this; humans don't see it -->
+        <div class="hp-field" aria-hidden="true">
+          <label>Leave this field empty <input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block"
+                data-cms="contact.form_button">Send Inquiry</button>
         <p class="form-note" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -393,8 +265,8 @@
   <!-- ================= FOOTER ================= -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>© <span id="year"></span> Global Top Brands. All rights reserved.</div>
-      <div class="footer-links">
+      <div data-cms-copyright>© <span id="year"></span> Global Top Brands. All rights reserved.</div>
+      <div class="footer-links" data-cms-list="site.nav" data-cms-template="#tpl-nav">
         <a href="#why-us">Why Us</a>
         <a href="#services">Services</a>
         <a href="#brands">Our Sites</a>
@@ -406,6 +278,7 @@
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="script.js"></script>
+  <script src="cms.js?v=2"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

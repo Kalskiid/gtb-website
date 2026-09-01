@@ -1,47 +1,8 @@
-/* ============ AOS init ============ */
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.AOS) {
-    AOS.init({
-      duration: 700,
-      easing: 'ease-out-cubic',
-      once: true,
-      offset: 60,
-    });
-  }
+/* ============ init after CMS hydration ============ */
 
-  /* ---------- Year ---------- */
-  const y = document.getElementById('year');
-  if (y) y.textContent = new Date().getFullYear();
-
-  /* ---------- Sticky header shadow on scroll ---------- */
-  const header = document.getElementById('site-header');
-  const onScroll = () => {
-    if (window.scrollY > 8) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-  };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  /* ---------- Mobile nav toggle ---------- */
-  const toggle = document.querySelector('.nav-toggle');
-  const nav    = document.querySelector('.nav');
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
-    });
-    nav.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => {
-        nav.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      })
-    );
-  }
-
-  /* ---------- Marquee: seamless loop via 2x cloning ----------
-     Step 1: inflate original items inline until we have >= 8 (fills wide containers).
-     Step 2: duplicate the whole inflated set once so the -50% keyframe seams cleanly. */
+const initMarquees = () => {
   document.querySelectorAll('.marquee-track').forEach(track => {
+    if (track.dataset.cloned) return;
     const originals = [...track.children];
     if (!originals.length) return;
     while (track.children.length < 8) {
@@ -53,59 +14,106 @@ document.addEventListener('DOMContentLoaded', () => {
       clone.setAttribute('tabindex', '-1');
       track.appendChild(clone);
     });
+    track.dataset.cloned = '1';
   });
+};
 
-  /* ---------- Subtle hero parallax ---------- */
-  const heroBg = document.querySelector('.hero-bg img');
-  if (heroBg && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      if (y < window.innerHeight) {
-        heroBg.style.transform = `translate3d(0, ${y * 0.15}px, 0) scale(1.05)`;
-      }
-    }, { passive: true });
-  }
+const initNav = () => {
+  const toggle = document.querySelector('.nav-toggle');
+  const nav    = document.querySelector('.nav');
+  if (!toggle || !nav || toggle.dataset.bound) return;
+  toggle.dataset.bound = '1';
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  nav.addEventListener('click', e => {
+    if (e.target.closest('a')) {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+};
 
-  /* ---------- Contact form (Formspree AJAX) ---------- */
+const initForm = () => {
   const form = document.querySelector('.contact-form');
-  const note = form?.querySelector('.form-note');
+  if (!form || form.dataset.bound) return;
+  form.dataset.bound = '1';
+  const note = form.querySelector('.form-note');
 
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      note.className = 'form-note';
-      note.textContent = 'Sending…';
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    note.className = 'form-note';
+    note.textContent = 'Sending…';
 
-      const endpoint = form.getAttribute('action');
-      const isPlaceholder = !endpoint || endpoint.includes('your-endpoint');
-
-      if (isPlaceholder) {
-        // Demo mode: no real endpoint configured.
-        setTimeout(() => {
-          note.className = 'form-note success';
-          note.textContent = 'Demo mode: configure your Formspree endpoint in index.html to enable sending.';
-          form.reset();
-        }, 600);
-        return;
+    const endpoint = form.getAttribute('action') || 'send.php';
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok !== false) {
+        note.className = 'form-note success';
+        note.textContent = data.message || 'Thanks — we\'ll reply within 24 hours.';
+        form.reset();
+      } else {
+        throw new Error(data.error || 'send-failed');
       }
+    } catch (err) {
+      note.className = 'form-note error';
+      note.textContent = 'Something went wrong. Please email us directly.';
+    }
+  });
+};
 
-      try {
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(form),
-        });
-        if (res.ok) {
-          note.className = 'form-note success';
-          note.textContent = 'Thanks — we\'ll reply within 24 hours.';
-          form.reset();
-        } else {
-          throw new Error('Bad response');
-        }
-      } catch {
-        note.className = 'form-note error';
-        note.textContent = 'Something went wrong. Please email sales@gtb-wholesale.com directly.';
-      }
-    });
-  }
-});
+const initParallax = () => {
+  const heroBg = document.querySelector('.hero-bg img');
+  if (!heroBg || heroBg.dataset.bound) return;
+  heroBg.dataset.bound = '1';
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y < window.innerHeight) {
+      heroBg.style.transform = `translate3d(0, ${y * 0.15}px, 0) scale(1.05)`;
+    }
+  }, { passive: true });
+};
+
+const initHeader = () => {
+  const header = document.getElementById('site-header');
+  if (!header || header.dataset.bound) return;
+  header.dataset.bound = '1';
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+};
+
+const initAOS = () => {
+  if (!window.AOS) return;
+  AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
+};
+
+const postCMS = () => {
+  initMarquees();
+  initNav();
+  initForm();
+  if (window.AOS) AOS.refreshHard();
+};
+
+const bootstrap = () => {
+  initHeader();
+  initNav();
+  initAOS();
+  initMarquees();
+  initForm();
+  initParallax();
+  /* CMS may have finished before this script registered its listener.
+     Check flag; else wait for cms:ready. */
+  if (window.__CMS_READY) postCMS();
+  else document.addEventListener('cms:ready', postCMS, { once: true });
+};
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootstrap);
+else bootstrap();

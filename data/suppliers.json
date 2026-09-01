@@ -1,0 +1,26 @@
+{
+  "eyebrow": "Brands we distribute",
+  "title": "Trusted names on our shelves.",
+  "subtitle": "A curated portfolio of manufacturers across small appliances, timepieces and lifestyle.",
+  "brands": [
+    { "name": "Vitesy",          "logo": "media/suppliers/vitesy.png" },
+    { "name": "Ariete",          "logo": "media/suppliers/ariete.png" },
+    { "name": "Oliver Voltz",    "logo": "media/suppliers/oliver-voltz.png" },
+    { "name": "Rosberg",         "logo": "media/suppliers/rosberg.png" },
+    { "name": "First Austria",   "logo": "media/suppliers/first-austria.png" },
+    { "name": "Turbotronic",     "logo": "media/suppliers/turbotronic.png" },
+    { "name": "Adler",           "logo": "media/suppliers/adler.png" },
+    { "name": "Kumtel",          "logo": "media/suppliers/kumtel.png" },
+    { "name": "Tefal",           "logo": "media/suppliers/tefal.png" },
+    { "name": "Royalty Line",    "logo": "media/suppliers/royalty-line.png" },
+    { "name": "Berlinger Haus",  "logo": "media/suppliers/berlinger-haus.png" },
+    { "name": "Casio",           "logo": "media/suppliers/casio.png" },
+    { "name": "Citizen",         "logo": "media/suppliers/citizen.png" },
+    { "name": "Guess",           "logo": "media/suppliers/guess.png" },
+    { "name": "G-Shock",         "logo": "media/suppliers/g-shock.png" },
+    { "name": "Seiko",           "logo": "media/suppliers/seiko.png" },
+    { "name": "Fossil",          "logo": "media/suppliers/fossil.png" },
+    { "name": "Armani Exchange", "logo": "media/suppliers/armani-exchange.png" },
+    { "name": "Orient",          "logo": "media/suppliers/orient.png" }
+  ]
+}

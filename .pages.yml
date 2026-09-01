@@ -1,138 +1,199 @@
 ##
-# Pages CMS configuration
+# Pages CMS configuration for globaltopbrands.eu
+# Edit content in a browser at https://app.pagescms.org (connect this GitHub repo)
 # Docs: https://pagescms.org/docs/configuration
 ##
 
-media: media
+media:
+  input: media
+  output: /media
+
 content:
 
-  # ---------- SEO / Site meta (single-file settings) ----------
-  - name: seo
-    label: SEO & Site Meta
-    path: data/seo.json
+  # ---------- Site meta / SEO / brand / nav / footer ----------
+  - name: site
+    label: Site (SEO · Brand · Nav · Footer)
     type: file
+    path: data/site.json
     format: json
     fields:
-      - { name: title,       label: Site Title,       type: string, required: true }
-      - { name: description, label: Meta Description, type: text }
-      - { name: keywords,    label: Meta Keywords,    type: string }
-      - { name: og_image,    label: Social Share Image, type: image }
+      - name: seo
+        label: SEO
+        type: object
+        fields:
+          - { name: title,       label: Page title,          type: string, required: true }
+          - { name: description, label: Meta description,    type: text }
+          - { name: keywords,    label: Meta keywords,       type: string }
+          - { name: canonical,   label: Canonical URL,       type: string }
+          - { name: og_image,    label: Social share image,  type: image }
+      - name: brand
+        label: Brand
+        type: object
+        fields:
+          - { name: logo,       label: Header logo,      type: image }
+          - { name: logo_alt,   label: Logo alt text,    type: string }
+          - { name: cta_label,  label: Header CTA label, type: string }
+          - { name: cta_href,   label: Header CTA link,  type: string }
+      - name: nav
+        label: Navigation links
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Label, type: string, required: true }
+          - { name: href,  label: Link,  type: string, required: true }
+      - name: footer
+        label: Footer
+        type: object
+        fields:
+          - { name: copyright, label: Copyright line (use {year} for current year), type: string }
 
-  # ---------- Hero (single file) ----------
+  # ---------- Hero section ----------
   - name: hero
-    label: Hero Section
+    label: Hero section
+    type: file
     path: data/hero.json
-    type: file
     format: json
     fields:
-      - { name: eyebrow,   label: Eyebrow,          type: string }
-      - { name: title,     label: Headline,         type: string, required: true }
-      - { name: highlight, label: Highlighted Word, type: string }
-      - { name: subtitle,  label: Sub-headline,     type: text }
-      - { name: cta_label, label: CTA Button Text,  type: string }
-      - { name: cta_href,  label: CTA Link,         type: string, default: "#contact" }
-      - { name: background_image, label: Background Image, type: image }
+      - { name: eyebrow,             label: Eyebrow,              type: string }
+      - { name: title_line1,         label: Headline — line 1,    type: string }
+      - { name: title_line2,         label: Headline — line 2 (accent), type: string }
+      - { name: subtitle,            label: Sub-headline,         type: text }
+      - { name: cta_primary_label,   label: Primary CTA label,    type: string }
+      - { name: cta_primary_href,    label: Primary CTA link,     type: string }
+      - { name: cta_secondary_label, label: Secondary CTA label,  type: string }
+      - { name: cta_secondary_href,  label: Secondary CTA link,   type: string }
+      - { name: background_image,    label: Background image,     type: image }
+      - name: stats
+        label: Stats row (3 items recommended)
+        type: object
+        list: true
+        fields:
+          - { name: value, label: Value, type: string, required: true }
+          - { name: label, label: Label, type: string, required: true }
 
-  # ---------- Why Us (repeatable cards) ----------
+  # ---------- Why Us ----------
   - name: why_us
-    label: Why Us
-    path: data/why-us
-    type: collection
+    label: Why Us section
+    type: file
+    path: data/why-us.json
     format: json
-    view:
-      fields: [title]
     fields:
-      - { name: title,       label: Title,               type: string, required: true }
-      - { name: description, label: Description,         type: text,   required: true }
-      - { name: order,       label: Sort Order,          type: number }
+      - { name: eyebrow,  label: Eyebrow,  type: string }
+      - { name: title,    label: Headline, type: string }
+      - { name: subtitle, label: Subtitle, type: text }
+      - name: cards
+        label: Cards
+        type: object
+        list: true
+        fields:
+          - { name: title,       label: Title,       type: string, required: true }
+          - { name: description, label: Description, type: text,   required: true }
 
-  # ---------- Auto-scrolling logo banner ----------
-  - name: logos_marquee
-    label: Scrolling Logo Banner
-    path: data/logos-marquee
-    type: collection
-    format: json
-    view:
-      fields: [name, url]
-    fields:
-      - { name: name,  label: Brand Name,   type: string, required: true }
-      - { name: logo,  label: Logo Image,   type: image,  required: true }
-      - { name: url,   label: Link URL,     type: string, required: true, pattern: "^https?://" }
-      - { name: order, label: Sort Order,   type: number }
-
-  # ---------- Services (repeatable) ----------
+  # ---------- Services ----------
   - name: services
-    label: Services
-    path: data/services
-    type: collection
+    label: Services section
+    type: file
+    path: data/services.json
     format: json
-    view:
-      fields: [number, title]
     fields:
-      - { name: number,      label: Step Number,  type: string }
-      - { name: title,       label: Title,        type: string, required: true }
-      - { name: description, label: Description,  type: text,   required: true }
-      - { name: order,       label: Sort Order,   type: number }
+      - { name: eyebrow, label: Eyebrow,  type: string }
+      - { name: title,   label: Headline, type: string }
+      - name: items
+        label: Services
+        type: object
+        list: true
+        fields:
+          - { name: number,      label: Step number, type: string }
+          - { name: title,       label: Title,       type: string, required: true }
+          - { name: description, label: Description, type: text,   required: true }
 
-  # ---------- Brands (repeatable logos) ----------
-  - name: brands
-    label: Brand Network
-    path: data/brands
-    type: collection
-    format: json
-    view:
-      fields: [name, url]
-    fields:
-      - { name: name,        label: Brand Name,   type: string, required: true }
-      - { name: tld,         label: TLD (.bg/.com), type: string }
-      - { name: url,         label: Website URL,  type: string, required: true, pattern: "^https?://" }
-      - { name: tagline,     label: Tagline,      type: string }
-      - { name: logo,        label: Logo (optional), type: image }
-      - { name: order,       label: Sort Order,   type: number }
-
-  # ---------- Supplier brands (repeatable partner logos) ----------
+  # ---------- Supplier brands (marquee) ----------
   - name: suppliers
-    label: Supplier Brands
-    path: data/suppliers
-    type: collection
+    label: Supplier brands (marquee)
+    type: file
+    path: data/suppliers.json
     format: json
-    view:
-      fields: [name]
     fields:
-      - { name: name,  label: Brand Name, type: string, required: true }
-      - { name: logo,  label: Logo Image, type: image }
-      - { name: url,   label: Website URL (optional), type: string }
-      - { name: order, label: Sort Order, type: number }
+      - { name: eyebrow,  label: Eyebrow,  type: string }
+      - { name: title,    label: Headline, type: string }
+      - { name: subtitle, label: Subtitle, type: text }
+      - name: brands
+        label: Brand logos
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Brand name, type: string, required: true }
+          - { name: logo, label: Logo,       type: image }
 
-  # ---------- Telemarketing (single file) ----------
+  # ---------- Own Sites (stacked blocks) ----------
+  - name: own_sites
+    label: Own Sites section
+    type: file
+    path: data/own-sites.json
+    format: json
+    fields:
+      - { name: eyebrow,  label: Eyebrow,  type: string }
+      - { name: title,    label: Headline, type: string }
+      - { name: subtitle, label: Subtitle, type: text }
+      - name: sites
+        label: Sites (stacked, in display order)
+        type: object
+        list: true
+        fields:
+          - { name: logo,         label: Site logo,      type: image }
+          - { name: category,     label: Category label, type: string }
+          - { name: name,         label: Site name,      type: string, required: true }
+          - { name: tld,          label: TLD (.bg / .com), type: string }
+          - { name: url,          label: Site URL,       type: string, required: true, pattern: "^https?://" }
+          - { name: description,  label: Description,    type: text }
+          - { name: cta_label,    label: CTA label,      type: string }
+          - { name: brands_label, label: Brands strip label, type: string }
+          - name: brands
+            label: Featured brands (per site)
+            type: object
+            list: true
+            fields:
+              - { name: name, label: Brand name, type: string, required: true }
+              - { name: logo, label: Logo,       type: image }
+
+  # ---------- Telemarketing ----------
   - name: telemarketing
-    label: Telemarketing Section
+    label: Telemarketing section
+    type: file
     path: data/telemarketing.json
-    type: file
     format: json
     fields:
-      - { name: eyebrow,  label: Eyebrow,     type: string }
-      - { name: title,    label: Headline,    type: string, required: true }
-      - { name: lead,     label: Lead Paragraph, type: text }
-      - { name: bullets,  label: Feature Bullets, type: string, list: true }
-      - { name: image_main,  label: Main Image,  type: image }
-      - { name: image_inset, label: Inset Image, type: image }
+      - { name: eyebrow, label: Eyebrow,        type: string }
+      - { name: title,   label: Headline,       type: string }
+      - { name: lead,    label: Lead paragraph, type: text }
+      - name: bullets
+        label: Bullet points (HTML allowed for <strong>)
+        type: string
+        list: true
+      - { name: cta_label,       label: CTA label, type: string }
+      - { name: cta_href,        label: CTA link,  type: string }
+      - { name: image_main,      label: Main image,      type: image }
+      - { name: image_main_alt,  label: Main image alt,  type: string }
+      - { name: image_inset,     label: Inset image,     type: image }
+      - { name: image_inset_alt, label: Inset image alt, type: string }
 
-  # ---------- Contact (single file) ----------
+  # ---------- Contact ----------
   - name: contact
-    label: Contact Info
-    path: data/contact.json
+    label: Contact section
     type: file
+    path: data/contact.json
     format: json
     fields:
-      - { name: email,   label: Email,   type: string, pattern: "^[^@]+@[^@]+\\.[^@]+$" }
-      - { name: phone,   label: Phone,   type: string }
-      - { name: hours,   label: Hours,   type: string }
-      - { name: formspree_endpoint, label: Formspree Endpoint URL, type: string,
-          description: "e.g. https://formspree.io/f/xxxxxxx" }
-
-settings:
-  content: content
-  media:
-    input: media
-    output: /media
+      - { name: eyebrow,    label: Eyebrow,          type: string }
+      - { name: title,      label: Headline,         type: string }
+      - { name: subtitle,   label: Subtitle,         type: text }
+      - { name: email,      label: Public email,     type: string, pattern: "^[^@]+@[^@]+\\.[^@]+$" }
+      - { name: phone,      label: Public phone,     type: string }
+      - { name: phone_href, label: Phone tel: value, type: string }
+      - { name: hours,      label: Hours,            type: string }
+      - { name: send_to,    label: Form recipient email, type: string,
+          description: "Address that receives inquiries submitted from the contact form.",
+          pattern: "^[^@]+@[^@]+\\.[^@]+$" }
+      - { name: form_success, label: Success message, type: string }
+      - { name: form_error,   label: Error message,   type: string }
+      - { name: form_button,  label: Submit button label, type: string }
