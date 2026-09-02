@@ -1,24 +1,42 @@
 {
   "seo": {
-    "title": "Global Top Brands — Wholesale, White Label & Telemarketing",
-    "description": "European wholesale partner: bulk sourcing, white-label bedding, telemarketing, EU logistics. 25+ projects delivered · 5 own stores · 100k+ SKUs handled.",
+    "title": "Global Top Brands — TELEMARKETING · B2B · B2C · WHOLESALE · E-COMMERCE",
+    "description": "Full-service sales and distribution company, combining e-commerce, wholesale, retail, brand development and high-performance inbound & outbound telemarketing to bring products to market and drive sustainable growth.",
     "keywords": "wholesale, B2B, B2C, white label, bedding, small appliances, timepieces, telemarketing, Bulgaria, Europe, fulfillment",
     "canonical": "https://globaltopbrands.eu/",
-    "og_image": "media/og-image.jpg"
+    "og_image": "/media/og-image.jpg"
   },
   "brand": {
-    "logo": "media/logo.png",
+    "logo": "/media/logo.png",
     "logo_alt": "Global Top Brands — Your Best Partner",
     "cta_label": "Request a Quote",
     "cta_href": "#contact"
   },
   "nav": [
-    { "label": "Why Us",        "href": "#why-us" },
-    { "label": "Services",      "href": "#services" },
-    { "label": "Our Sites",     "href": "#brands" },
-    { "label": "Brands",        "href": "#suppliers" },
-    { "label": "Telemarketing", "href": "#telemarketing" },
-    { "label": "Contact",       "href": "#contact" }
+    {
+      "label": "Why Us",
+      "href": "#why-us"
+    },
+    {
+      "label": "Services",
+      "href": "#services"
+    },
+    {
+      "label": "Our Sites",
+      "href": "#brands"
+    },
+    {
+      "label": "Brands",
+      "href": "#suppliers"
+    },
+    {
+      "label": "Telemarketing",
+      "href": "#telemarketing"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
+    }
   ],
   "footer": {
     "copyright": "© {year} Global Top Brands. All rights reserved."
