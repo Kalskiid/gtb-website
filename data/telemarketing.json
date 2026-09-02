@@ -1,7 +1,7 @@
 {
-  "eyebrow": "Telemarketing service",
-  "title": "Turn every call into revenue — guaranteed lift on the metrics that matter.",
-  "lead": "Our in-house call center doesn't just dial numbers — it engineers outcomes. Trained agents confirm, upsell and rescue orders in real time, so more parcels get accepted, fewer come back, and each basket is worth more.",
+  "eyebrow": "More than Telemarketing service",
+  "title": "Turn every call into revenue - guaranteed lift on the metrics that matter.",
+  "lead": "Our in-house call center is an integral part of the sales process — from customer outreach and order confirmation to up-selling and retention. Our trained team helps maximize successful deliveries, increase order value and build stronger customer relationships. ",
   "bullets": [
     "<strong>Higher delivery success</strong> — proactive confirmation calls raise accepted-parcel rate on COD and courier orders.",
     "<strong>Fewer returns</strong> — expectation-setting and objection handling before the parcel ships cut the return ratio.",
@@ -11,8 +11,6 @@
   ],
   "cta_label": "Talk to Sales",
   "cta_href": "#contact",
-  "image_main": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80",
   "image_main_alt": "Energetic call-center team wearing headsets in a modern office",
-  "image_inset": "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=600&q=80",
   "image_inset_alt": "Sales agents high-fiving after a successful call"
 }
