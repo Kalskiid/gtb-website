@@ -1,13 +1,31 @@
 {
   "eyebrow": "Why partner with us",
-  "title": "Wholesale advantages, engineered for growth.",
-  "subtitle": "Whether you order a pallet or a full container, we optimize for margin, speed, and reliability.",
+  "title": "We don't just distribute — we build sales and grow brands.",
+  "subtitle": "From market entry to customer acquisition, we provide the sales, distribution and marketing infrastructure brands need to scale.",
   "cards": [
-    { "title": "Bulk Pricing",       "description": "Tiered discounts that scale with order volume — transparent, predictable, negotiable." },
-    { "title": "Reliable Logistics", "description": "Consolidated shipping, tracked delivery, EU-wide fulfillment from our regional warehouses." },
-    { "title": "Verified Suppliers", "description": "Every partner audited for quality, compliance, and lead-time stability." },
-    { "title": "Fast Turnaround",    "description": "Quotes within 24h. Stocked lines ship the same day." },
-    { "title": "B2B & B2C Ready",    "description": "Serve wholesalers, marketplaces, and direct-to-consumer flows from one supply chain." },
-    { "title": "White Label Ready",  "description": "Private-label production of bedding, packaging and consumer goods built to your brand specification." }
+    {
+      "title": "Bulk Pricing",
+      "description": "Tiered discounts that scale with order volume — transparent, predictable, negotiable."
+    },
+    {
+      "title": "Reliable Logistics",
+      "description": "Consolidated shipping, tracked delivery, EU-wide fulfillment from our regional warehouses."
+    },
+    {
+      "title": "Verified Suppliers",
+      "description": "Every partner audited for quality, compliance, and lead-time stability."
+    },
+    {
+      "title": "Fast Turnaround",
+      "description": "Quotes within 24h. Stocked lines ship the same day."
+    },
+    {
+      "title": "B2B & B2C Ready",
+      "description": "Serve wholesalers, marketplaces, and direct-to-consumer flows from one supply chain."
+    },
+    {
+      "title": "White Label Ready",
+      "description": "Private-label production of bedding, packaging and consumer goods built to your brand specification."
+    }
   ]
 }
