@@ -2,9 +2,25 @@
   "eyebrow": "Services",
   "title": "Everything between the factory and your shelf.",
   "items": [
-    { "number": "01", "title": "Bulk Sourcing",           "description": "Direct-from-manufacturer procurement across electronics, home goods, and lifestyle categories." },
-    { "number": "02", "title": "Logistics & Fulfillment", "description": "Warehousing, pick-pack, cross-border shipping, customs handling — all in one contract." },
-    { "number": "03", "title": "White Label Bedding",     "description": "Custom-branded comforters, pillows and bed linen produced in bulk to your specification." },
-    { "number": "04", "title": "Wholesale Distribution",  "description": "EU-wide bulk distribution across small appliances, electronics, timepieces and home textiles." }
+    {
+      "number": "01",
+      "title": "Telemarketing",
+      "description": "We connect brands with the right customers through professional outbound sales and telemarketing solutions."
+    },
+    {
+      "number": "02",
+      "title": "Logistics & Fulfillment",
+      "description": "We manage storage, order processing and delivery, ensuring efficient and reliable fulfillment across Bulgaria."
+    },
+    {
+      "number": "03",
+      "title": "White Label Bedding",
+      "description": "White-label comforters, pillows, bed linen and other sleep solutions produced in bulk to your specification."
+    },
+    {
+      "number": "04",
+      "title": "Market Entry",
+      "description": "We help international brands enter, establish and grow their presence in the Bulgarian market."
+    }
   ]
 }
