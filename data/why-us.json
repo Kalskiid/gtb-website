@@ -1,31 +1,31 @@
 {
   "eyebrow": "Why partner with us",
-  "title": "We don't just distribute — we build sales and grow brands.",
+  "title": "We don't just distribute. We build sales and grow brands.",
   "subtitle": "From market entry to customer acquisition, we provide the sales, distribution and marketing infrastructure brands need to scale.",
   "cards": [
     {
-      "title": "Bulk Pricing",
-      "description": "Tiered discounts that scale with order volume — transparent, predictable, negotiable."
+      "title": "Distribution",
+      "description": "We bring brands to market through our established distribution and sales network."
     },
     {
-      "title": "Reliable Logistics",
-      "description": "Consolidated shipping, tracked delivery, EU-wide fulfillment from our regional warehouses."
+      "title": "Wholesale",
+      "description": "We connect brands with retailers, resellers and B2B partners across Bulgaria."
     },
     {
-      "title": "Verified Suppliers",
-      "description": "Every partner audited for quality, compliance, and lead-time stability."
+      "title": "E-Commerce",
+      "description": "We build and operate high-performing online stores that turn products into sales."
     },
     {
-      "title": "Fast Turnaround",
-      "description": "Quotes within 24h. Stocked lines ship the same day."
+      "title": "Telemarketing",
+      "description": "Our inbound and outbound sales team drives conversions, cross-sells and upsells through premium customer service."
     },
     {
-      "title": "B2B & B2C Ready",
-      "description": "Serve wholesalers, marketplaces, and direct-to-consumer flows from one supply chain."
+      "title": "Marketing",
+      "description": "We create targeted marketing strategies that build awareness, acquire customers and drive growth."
     },
     {
-      "title": "White Label Ready",
-      "description": "Private-label production of bedding, packaging and consumer goods built to your brand specification."
+      "title": "White Label Bedding",
+      "description": "We offer white-label solutions across the bedroom category, including pillows, duvets, mattresses and other sleep products."
     }
   ]
 }
